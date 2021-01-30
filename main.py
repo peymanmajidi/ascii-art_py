@@ -29,13 +29,12 @@ def pixels_to_ascii(image):
     for pixel in pixels:
         code = ASCII_CHARS[pixel//24]
         characters+= code
-        print(f"::{pixel} => {code}")
+        #print(f"::{pixel} => {code}")
 
     return(characters)    
 
 def main(new_width=100):
-    path = "peyman.jpg"
-    # path = "sample.png"
+    path = "sample.png"
     image = PIL.Image.open(path)
      
     new_image_data = pixels_to_ascii(grayify(resize_image(image)))
