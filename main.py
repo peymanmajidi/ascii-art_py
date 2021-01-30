@@ -4,7 +4,10 @@ try:
 except ImportError:
     from PIL import Image
 
-ASCII_CHARS = ["@", "#", "S", "%", "?", "*", "+", ";", ":", ",", ".", " "]
+ASCII_CHARS = ["@", "#", "S", "X", "?", "*", "+", ";", ":", ",", "."]
+
+# import cv2
+# stream = cv2.VideoCapture('rtsp://admin:12345@192.168.1.1/1')  
 
 def resize_image(image, new_width=100):
     width, height = image.size
@@ -24,16 +27,15 @@ def pixels_to_ascii(image):
 
     characters = ""
     for pixel in pixels:
-        code = ASCII_CHARS[pixel//22]
+        code = ASCII_CHARS[pixel//24]
         characters+= code
-
-        print(f"char:'{chr(pixel)}'")
+        print(f"::{pixel} => {code}")
 
     return(characters)    
 
 def main(new_width=100):
-    # path = "pey.jpg"
-    path = "sample.png"
+    path = "peyman.jpg"
+    # path = "sample.png"
     image = PIL.Image.open(path)
      
     new_image_data = pixels_to_ascii(grayify(resize_image(image)))
