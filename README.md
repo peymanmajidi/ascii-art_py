@@ -11,4 +11,4 @@ To Do
 -----    
 
 - [ ] Webcam/Ip camera Support  
-- [ ] Add comments to code
+- [x] Add comments to code
